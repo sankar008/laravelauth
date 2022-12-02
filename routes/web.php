@@ -28,10 +28,3 @@ Route::group(['prefix' => 'admin'], function(){
     Route::post("/register", [App\Http\Controllers\AdminController::class, 'register'])->middleware('admin.guest')->name("admin.register.submit");
     Route::get("/dashboard", [App\Http\Controllers\AdminController::class, 'dashboard'])->middleware('admin.auth')->name("admin.dashboard");
 }); 
-
-Route::group(['prefix' => 'student'], function(){
-    Route::get("/login", [App\Http\Controllers\StudentController::class, 'login'])->middleware('student.guest')->name("student.login");
-    Route::post("/login", [App\Http\Controllers\StudentController::class, 'login'])->middleware('student.guest')->name("student.login.check");
-    Route::get("/dashboard", [App\Http\Controllers\StudentController::class, 'dashboard'])->middleware('student.auth')->name("student.dashboard");
-
-});
